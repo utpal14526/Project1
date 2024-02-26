@@ -14,6 +14,7 @@ app.use(express.json()); //middleware
 const DB="mongodb+srv://itsmeutpalraj:Utpaliit%40123@cluster0.yba49sl.mongodb.net/mydb";
 
 
+
 mongoose
   .connect(DB)
   .then(() => {
