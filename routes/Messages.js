@@ -6,7 +6,7 @@ const fetchuser = require("../Middleware/fetchuser");
 const Message = require("../Models/MessageModal");
 
 router.post("/pushmessage", fetchuser, async (req, res) => {
-  console.log(req.body);
+
   try {
     const newmessage = await Message.create({
       Sender: req.id,
@@ -25,19 +25,15 @@ router.post("/getChats/:userid2", fetchuser, async (req, res) => {
     const from = req.id;
     const to = req.params.userid2;
 
-    console.log(to);
-
     const newmessage = await Message.find({
       Chatusers: {
         $all: [from, to],
       },
     }).sort({ updatedAt: 1 });
 
-    console.log(newmessage);
-
     const allmessages = newmessage.map((msg) => {
       return {
-        myself: (msg.Sender.toString() == from)?"YES":"NO",
+        myself: (msg.Sender.toString() == from) ? "YES" : "NO",
         message: msg.message,
       };
     });

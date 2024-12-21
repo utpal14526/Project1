@@ -6,6 +6,7 @@ const fetchuser = (req, res, next) => {
 
   const token = req.header("auth-token"); //auth token taken is from header
 
+
   if (!token) {
     res
       .status(401)

@@ -18,7 +18,7 @@ const ProfileSchema = new Schema(
     },
 
     YEAROFGRADUATION: {
-      type: String,
+      type: Number,
       default: "",
     },
 
@@ -32,16 +32,16 @@ const ProfileSchema = new Schema(
       default: "",
     },
 
-    PROFILELINK: {
-      type: String,
-      default:
-        "https://i.pinimg.com/originals/f5/c2/33/f5c233abe166b186b989293ad18ba07a.jpg",
+    photo: {
+      data: Buffer,
+      contentType: String,
     },
 
-    SELECTINTERESTS: {
-      type: Array,
-      default: [],
-    },
+    rating: {
+      type: Number,
+      default: 0
+    }
+
   },
   {
     timestamps: true,

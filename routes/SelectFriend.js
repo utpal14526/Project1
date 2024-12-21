@@ -8,10 +8,10 @@ const fetchuser = require("../Middleware/fetchuser");
 router.post("/filteruser", fetchuser, async (req, res) => {
   let arr = [];
 
-  console.log(req.body);
+
 
   const profiles = await Profile.find();
-  console.log(profiles.length);
+
 
   for (let z = 0; z < profiles.length; z++) {
     if (profiles[z].USERID.toString() != req.id) {
